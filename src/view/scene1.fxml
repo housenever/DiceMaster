@@ -32,7 +32,7 @@
             </HBox>
             <BorderPane prefHeight="200.0" prefWidth="200.0">
                <top>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Select Your Character" BorderPane.alignment="CENTER">
+                  <Text fx:id="mainIntrust" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Your Character" BorderPane.alignment="CENTER">
                      <font>
                         <Font size="25.0" />
                      </font>
@@ -44,10 +44,10 @@
                <center>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <VBox alignment="TOP_CENTER">
+                        <VBox alignment="TOP_CENTER" styleClass="charaItem">
                            <children>
-                              <ImageView fitHeight="150.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name1" textAlignment="CENTER">
+                              <ImageView fitHeight="150.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true" styleClass="charaPic" />
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="charaName" text="Name1" textAlignment="CENTER">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
@@ -55,7 +55,7 @@
                                     <Insets bottom="20.0" top="20.0" />
                                  </VBox.margin>
                               </Text>
-                              <Button mnemonicParsing="false" text="Select">
+                              <Button mnemonicParsing="false" styleClass="charaSelectBtn" text="Select">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
@@ -123,11 +123,15 @@
                   </HBox>
                </center>
                <bottom>
-                  <Button mnemonicParsing="false" onAction="#nextScene" style="-fx-background-color: BLUE;" text="NEXT" textAlignment="CENTER" textFill="WHITE" BorderPane.alignment="CENTER">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Button>
+                  <HBox fx:id="Bottom" alignment="CENTER" maxHeight="100.0" prefHeight="100.0" prefWidth="200.0" spacing="20.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Button fx:id="nextBtn" mnemonicParsing="false" onAction="#nextScene" style="-fx-background-color: blue;" text="Next" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
                </bottom>
             </BorderPane>
          </children>
