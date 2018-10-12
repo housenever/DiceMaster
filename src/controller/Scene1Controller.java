@@ -17,8 +17,8 @@ public class Scene1Controller {
 
         //This line gets the Stage information
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        System.out.println("Stage loaded.");
 
         window.setScene(editCharaScene);
-        window.show();
     }
 }

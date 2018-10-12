@@ -20,7 +20,6 @@ public class Scene2Controller {
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setScene(diffScene);
-        window.show();
     }
 
     public void backScene(ActionEvent event) throws IOException
@@ -32,6 +31,5 @@ public class Scene2Controller {
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setScene(selectCharaScene);
-        window.show();
     }
 }
