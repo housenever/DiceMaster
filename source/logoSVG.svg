@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="113px" height="97px" viewBox="0 0 113 97" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Scene1" transform="translate(-39.000000, -18.000000)">
+            <g id="Group-2" transform="translate(39.000000, 26.000000)">
+                <g id="maze-copy" transform="translate(24.000000, 0.000000)" fill="#FF275C" fill-rule="nonzero">
+                    <path d="M0,0 L0,41 L41,41 L41,0 L0,0 Z M38.2666555,38.2666555 L29.8184244,38.2666555 L29.8184244,35.4305626 L35.4304792,35.4305626 L35.4304792,5.56943744 L27.1063469,5.56943744 L27.1063469,8.30278189 L32.6971347,8.30278189 L32.6971347,19.3101353 L29.818341,19.3101353 L29.818341,11.1814922 L11.1814922,11.1814922 L11.1814922,29.8184244 L20.7275146,29.8184244 L20.7275146,27.08508 L13.9148366,27.08508 L13.9148366,13.9148366 L21.5356585,13.9148366 L21.5356585,16.7309971 L16.7309971,16.7309971 L16.7309971,24.2690029 L24.2690029,24.2690029 L24.2690029,21.5356585 L19.4643415,21.5356585 L19.4643415,19.4642581 L24.2690029,19.4642581 L24.2690029,13.9148366 L27.0851634,13.9148366 L27.0851634,27.08508 L24.0314804,27.08508 L24.0314804,29.8184244 L29.8185078,29.8184244 L29.8185078,22.0434798 L32.6973015,22.0434798 L32.6973015,32.6971347 L8.30286529,32.6971347 L8.30286529,27.9031484 L5.56943744,27.9031484 L5.56943744,35.4304792 L27.08508,35.4304792 L27.08508,38.2665721 L2.73334445,38.2666555 L2.73334445,13.1000207 L5.56943744,13.1000207 L5.56943744,24.940955 L8.30269849,24.940955 L8.30269849,8.30278189 L24.2582444,8.30278189 L24.2582444,5.56943744 L5.56943744,5.56943744 L5.56943744,10.3666763 L2.73334445,10.3666763 L2.73334445,2.73334445 L38.2666555,2.73334445 L38.2666555,38.2666555 Z" id="XMLID_157_" transform="translate(20.500000, 20.500000) rotate(30.000000) translate(-20.500000, -20.500000) "></path>
+                </g>
+                <g id="Group-2-Copy-2" transform="translate(65.003521, 61.003521) rotate(30.000000) translate(-65.003521, -61.003521) translate(44.503521, 40.503521)" fill="#FF275C">
+                    <path d="M3,3 L3,37.7031048 L37.7031048,37.7031048 L37.7031048,3 L3,3 Z M0,0 L40.7031048,0 L40.7031048,40.7031048 L0,40.7031048 L0,0 Z" id="Rectangle" fill-rule="nonzero"></path>
+                    <g id="Group" transform="translate(10.854161, 10.854161)">
+                        <circle id="Oval" cx="3" cy="3" r="3"></circle>
+                        <circle id="Oval-Copy" cx="15.6631882" cy="3" r="3"></circle>
+                        <circle id="Oval-Copy-2" cx="15.6631882" cy="15.6631882" r="3"></circle>
+                        <circle id="Oval-Copy-3" cx="3" cy="15.6631882" r="3"></circle>
+                    </g>
+                </g>
+                <rect id="Rectangle-2-Copy" fill="#FFFFFF" x="0" y="31" width="113" height="24"></rect>
+                <text id="DICE-MASTER-Copy-2" font-family="DINCond-BoldAlternate" font-size="24" font-style="condensed" font-weight="bold" fill="#334CD5">
+                    <tspan x="3" y="51">DICE MASTER</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

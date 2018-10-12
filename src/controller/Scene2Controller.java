@@ -16,9 +16,7 @@ public class Scene2Controller {
         Parent scene3 = FXMLLoader.load(getClass().getResource("../view/scene3.fxml"));
         Scene diffScene = new Scene(scene3);
 
-        //This line gets the Stage information
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-
         window.setScene(diffScene);
     }
 
@@ -27,9 +25,7 @@ public class Scene2Controller {
         Parent scene1 = FXMLLoader.load(getClass().getResource("../view/scene1.fxml"));
         Scene selectCharaScene = new Scene(scene1);
 
-        //This line gets the Stage information
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-
         window.setScene(selectCharaScene);
     }
 }
