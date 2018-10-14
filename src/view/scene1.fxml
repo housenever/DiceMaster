@@ -37,7 +37,7 @@
             </HBox>
             <BorderPane prefHeight="200.0" prefWidth="200.0">
                <top>
-                  <Text fx:id="mainIntrust" fill="#334cd5" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Your Character" textAlignment="CENTER" BorderPane.alignment="CENTER">
+                  <Text fx:id="mainIntrust" fill="#334cd5" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Your Hero" textAlignment="CENTER" BorderPane.alignment="CENTER">
                      <font>
                         <Font name="Helvetica Light" size="18.0" />
                      </font>
