@@ -63,7 +63,7 @@
             </Label>
             <VBox fx:id="operateArea" alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Button fx:id="diceBtn" mnemonicParsing="false" style="-fx-background-color: red;" text="DICE!" textFill="WHITE">
+                  <Button fx:id="diceBtn" mnemonicParsing="false" onAction="#rollDice" style="-fx-background-color: red;" text="DICE!" textFill="WHITE">
                      <font>
                         <Font size="20.0" />
                      </font>
