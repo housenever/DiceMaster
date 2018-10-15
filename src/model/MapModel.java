@@ -37,6 +37,7 @@ public class MapModel {
 				// create a map for maze with random wall
 				MapUnitModel aUnit = new MapUnitModel(randomWall, false);
 				mapPane.add(aUnit, i, j);
+				aUnit.setXY(i, j);
 				mapUnitList.add(aUnit);
 			}
 	}

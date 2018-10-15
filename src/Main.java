@@ -18,8 +18,6 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-    	DiceModel dice = new DiceModel();
-    	System.out.println(""+dice.rollDice());;
         launch(args);
     }
 }
