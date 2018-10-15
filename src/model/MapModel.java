@@ -26,21 +26,27 @@ public class MapModel{
 	// method to create map
 	private void creatMazeMap(int mapSize) {
 
-		for (int i = mapSize; i > 0; i--)
-			for (int j = mapSize; j > 0; j--) {
+		for (int i = mapSize; i >= 0; i--)
+			for (int j = mapSize; j >= 0; j--) {
 
 				// get random number to creating random walls
 				Boolean randomWall = false;
 				double d = Math.random();
 				int r = (int) (d * 100);
-				if (r > 70)
+				if (r > 75)
 					randomWall = true;
-
+			
 				// create a map for maze with random wall
 				MapUnitModel aUnit = new MapUnitModel(randomWall, false);
 				mapPane.add(aUnit, i, j);
 				aUnit.setXY(i, j);
 				mapUnitList.add(aUnit);
+				
+				// put hero in the maze
+				if(i == 0 && j == 0) {
+					aUnit.setText("@");
+				}
+				
 			}
 	}
 
