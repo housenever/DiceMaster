@@ -40,5 +40,4 @@ public class MapModel {
 				mapUnitList.add(aUnit);
 			}
 	}
-
 }
