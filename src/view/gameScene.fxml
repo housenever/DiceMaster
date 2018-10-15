@@ -74,6 +74,6 @@
       </VBox>
    </left>
    <center>
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: ddd;" BorderPane.alignment="CENTER" />
+      <Pane fx:id="mazeMap" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: ddd;" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

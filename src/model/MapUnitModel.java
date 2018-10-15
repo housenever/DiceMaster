@@ -20,7 +20,8 @@ public class MapUnitModel extends Label{
 		
 		// if true, display wall as "[ ]"
 		if(this.isWall == true) {
-			this.setText("[ ]");
+			this.setStyle("-fx-background-color: #000;");
+//			this.setText("[ ]");
 		}
 	}
 	

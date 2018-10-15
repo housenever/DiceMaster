@@ -2,9 +2,11 @@ package model;
 
 import java.util.ArrayList;
 
+import javafx.scene.Node;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 
-public class MapModel {
+public class MapModel{
 
 	// store each unit on the map to list
 	private ArrayList<MapUnitModel> mapUnitList = new ArrayList<MapUnitModel>();
@@ -13,8 +15,8 @@ public class MapModel {
 
 	// constructor 
 	public MapModel(int mapSize) {
-		// TODO Auto-generated constructor stub
 		creatMazeMap(mapSize);
+
 	}
 	
 	public GridPane getMapPane() {
@@ -31,7 +33,7 @@ public class MapModel {
 				Boolean randomWall = false;
 				double d = Math.random();
 				int r = (int) (d * 100);
-				if (r > 50)
+				if (r > 70)
 					randomWall = true;
 
 				// create a map for maze with random wall
@@ -41,4 +43,5 @@ public class MapModel {
 				mapUnitList.add(aUnit);
 			}
 	}
+
 }
