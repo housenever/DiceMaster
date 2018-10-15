@@ -6,9 +6,15 @@ import javafx.scene.control.Label;
 
 public class MapUnitModel extends Label{
 
+
+
 	private Boolean isWall = false;
 	private Boolean hasHero = false;     //This is for further use
 	private int xAxis, yAxis;
+
+	public Boolean getWall() {
+		return isWall;
+	}
 	
 	public MapUnitModel(Boolean isWall, Boolean hasHero) {
 		// TODO Auto-generated constructor stub

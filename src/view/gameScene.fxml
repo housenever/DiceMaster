@@ -61,6 +61,7 @@
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </VBox.margin>
             </Label>
+            <Label fx:id="direction" text="direction" />
             <VBox fx:id="operateArea" alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
                   <Button fx:id="diceBtn" mnemonicParsing="false" onAction="#rollDice" style="-fx-background-color: red;" text="DICE!" textFill="WHITE">

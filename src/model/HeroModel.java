@@ -7,6 +7,54 @@ public class HeroModel {
 	private int MP;
 	private int xAxis = 0, yAxis = 0;
 
+	public String detectDirection(MapModel map){
+		boolean upHasWall = true;
+		boolean downHasWall = true;
+		boolean leftHasWall = true;
+		boolean rightHasWall = true;
+		String s = "";
+
+
+
+		try{
+			upHasWall = map.getUnitList(xAxis, yAxis-1).getWall();
+			if(!upHasWall){
+				s = s+"up,";
+			}
+		}catch(Exception e){
+		}
+
+		try{
+			downHasWall = map.getUnitList(xAxis, yAxis+1).getWall();
+			if(!downHasWall){
+				s = s+"down,";
+			}
+		}catch (Exception e) {
+
+		}
+
+		try{
+			leftHasWall = map.getUnitList(xAxis-1, yAxis).getWall();
+			if(!leftHasWall){
+				s = s+"left,";
+			}
+		}catch (Exception e){
+
+		}
+
+		try{
+			rightHasWall = map.getUnitList(xAxis+1, yAxis).getWall();
+			if(!rightHasWall){
+				s = s+"right,";
+			}
+		}catch (Exception e){
+
+		}
+
+		return s;
+
+	}
+
 	public HeroModel(String heroName, int HP, int MP) {
 		this.heroName = heroName;
 		this.HP = HP;

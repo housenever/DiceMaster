@@ -16,6 +16,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.DiceModel;
+import model.HeroModel;
+import model.HeroValkyrie;
 import model.MapModel;
 import java.io.IOException;
 import java.net.URL;
@@ -48,13 +50,23 @@ public class GameSceneController implements Initializable {
     private VBox operateArea;
     @FXML
     private VBox userProfile;
+    @FXML
+    private Label direction;
+
+    Pane map = new Pane();
+    MapModel mapModel = new MapModel(20);
+
+    HeroValkyrie character = new HeroValkyrie();
 
     @FXML
     public void rollDice(ActionEvent event) {
         DiceModel diceModel = new DiceModel();
         int currentNumber = diceModel.rollDice();
         diceResult.setText(String.valueOf(currentNumber));
+        direction.setText(character.detectDirection(mapModel));
     }
+
+
 
     @FXML
     public void exitGame(ActionEvent event) throws IOException
@@ -63,11 +75,10 @@ public class GameSceneController implements Initializable {
         window.close();
     }
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Pane map = new Pane();
-        MapModel Map = new MapModel(20);
-        map = Map.getMapPane();
+        map = mapModel.getMapPane();
         mazeMap.getChildren().add(map);
     }
 }
