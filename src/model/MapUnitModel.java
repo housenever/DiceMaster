@@ -23,6 +23,7 @@ public class MapUnitModel extends Label{
 		
 		// default (not wall)
 		this.setText("   ");
+		this.setPrefSize(25,25);
 		
 		// if true, display wall as "[ ]"
 		if(this.isWall == true) {

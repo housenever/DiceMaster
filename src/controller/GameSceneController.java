@@ -55,15 +55,17 @@ public class GameSceneController implements Initializable {
 
     Pane map = new Pane();
     MapModel mapModel = new MapModel(20);
+    HeroValkyrie hero = new HeroValkyrie();
 
-    HeroValkyrie character = new HeroValkyrie();
+
 
     @FXML
     public void rollDice(ActionEvent event) {
         DiceModel diceModel = new DiceModel();
         int currentNumber = diceModel.rollDice();
         diceResult.setText(String.valueOf(currentNumber));
-        direction.setText(character.detectDirection(mapModel));
+        direction.setText(hero.detectDirection(mapModel));
+        hero.move();
     }
 
 
@@ -79,7 +81,8 @@ public class GameSceneController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         map = mapModel.getMapPane();
-        mazeMap.getChildren().add(map);
+        mazeMap.getChildren().addAll(map,hero);
+
     }
 }
 
