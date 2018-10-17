@@ -21,14 +21,14 @@ public class Scene3Controller {
 
     public void nextScene(ActionEvent event) throws IOException
     {
-        Parent scene3 = FXMLLoader.load(getClass().getResource("../view/gameScene.fxml"));
+    	Context.getInstance().getMapModel().setDifficulty((int)slider.getValue());
+    	
+    	Parent scene3 = FXMLLoader.load(getClass().getResource("../view/gameScene.fxml"));
         Scene gameScene = new Scene(scene3);
 
         //This line gets the Stage information
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(gameScene);
-        Context instance = new Context();
-        instance.setDifficulty((int)slider.getValue());
 
     }
 

@@ -1,15 +1,15 @@
 package model;
 
 public class Context {
+	private final static Context instance = new Context();
 
-    private static int difficulty = 20;
+	public static Context getInstance() {
+		return instance;
+	}
 
-    public int getDifficulty() {
-        return difficulty;
-    }
+	private MapModel mapModel = new MapModel(20);
 
-    public void setDifficulty(int difficulty){
-        Context.difficulty = difficulty;
-    }
-
+	public MapModel getMapModel() {
+		return mapModel;
+	}
 }

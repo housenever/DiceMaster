@@ -52,9 +52,8 @@ public class GameSceneController implements Initializable {
     private Label direction;
 
     private Pane map = new Pane();
-    MapModel mapModel = new MapModel(20);
-    private HeroValkyrie hero = new HeroValkyrie();
-    Context instance = new Context();
+    private MapModel mapModel;
+	private HeroValkyrie hero = new HeroValkyrie();
 
 
     @FXML
@@ -64,10 +63,8 @@ public class GameSceneController implements Initializable {
         diceResult.setText(String.valueOf(currentNumber));
         hero.move(mapModel,currentNumber);
         direction.setText(hero.detectDirection(mapModel));
-        System.out.println("Rolldice"+instance.getDifficulty());
-
+        
     }
-
 
     @FXML
     public void exitGame(ActionEvent event) throws IOException
@@ -79,8 +76,7 @@ public class GameSceneController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        mapModel.setDifficulty(instance.getDifficulty());
-        System.out.println("A"+instance.getDifficulty());
+    	mapModel = Context.getInstance().getMapModel();
         map = mapModel.getMapPane();
         mazeMap.getChildren().addAll(map,hero);
     }

@@ -11,16 +11,15 @@ public class MapModel {
 	private int position_x = 100;
 	private int position_y = 100;
 	private int mazeSize;
-
 	private int difficulty;
+	
 	public int getDifficulty() {
 		return difficulty;
 	}
+
 	public void setDifficulty(int difficulty) {
 		this.difficulty = difficulty;
 	}
-
-
 
 
 	// store each unit on the map to list
@@ -32,17 +31,15 @@ public class MapModel {
 	// constructor
 	public MapModel(int mapSize) {
 		mazeSize = mapSize;
-		creatMazeMap(mazeSize);
-
 	}
 
 	public GridPane getMapPane() {
+		creatMazeMap(mazeSize);
 		return mapPane;
 	}
 
 	// method to create map
 	private void creatMazeMap(int mapSize) {
-		System.out.println(difficulty);
 
 		for (int i = mapSize; i >= 0; i--)
 			for (int j = mapSize; j >= 0; j--) {
@@ -77,6 +74,5 @@ public class MapModel {
 	public int getSize() {
 		return mazeSize;
 	}
-
 	
 }
