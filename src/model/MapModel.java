@@ -6,22 +6,25 @@ import javafx.scene.Node;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 
-public class MapModel{
+public class MapModel {
 
-    int position_x = 100;
-    int position_y = 100;
+	private int position_x = 100;
+	private int position_y = 100;
+	private int mazeSize;
+	
 	// store each unit on the map to list
-//	private ArrayList<MapUnitModel> mapUnitList = new ArrayList<MapUnitModel>();
 	private MapUnitModel[][] mapUnitList = new MapUnitModel[position_x][position_y];
+	
 	// a grid pane to generate and draw the map
 	private GridPane mapPane = new GridPane();
 
-	// constructor 
+	// constructor
 	public MapModel(int mapSize) {
-		creatMazeMap(mapSize);
+		mazeSize = mapSize;
+		creatMazeMap(mazeSize);
 
 	}
-	
+
 	public GridPane getMapPane() {
 		return mapPane;
 	}
@@ -38,24 +41,29 @@ public class MapModel{
 				int r = (int) (d * 100);
 				if (r > 75)
 					randomWall = true;
-			
+
 				// create a map for maze with random wall
 				MapUnitModel aUnit = new MapUnitModel(randomWall, false);
 				mapPane.add(aUnit, i, j);
 				aUnit.setXY(i, j);
 				mapUnitList[i][j] = aUnit;
-				
+
 				// put hero in the maze
-				if(i == 0 && j == 0) {
+				if (i == 0 && j == 0) {
 					aUnit.setText("@");
 					aUnit.setStyle("-fx-background-color: #fff;");
 				}
-				
+
 			}
 	}
 
-	public MapUnitModel getUnitList(int x, int y){
-	    return mapUnitList[x][y];
-    }
+	public MapUnitModel getUnitList(int x, int y) {
+		return mapUnitList[x][y];
+	}
+	
+	public int getSize() {
+		return mazeSize;
+	}
 
+	
 }

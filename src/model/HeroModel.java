@@ -5,53 +5,54 @@ import java.util.concurrent.TimeUnit;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class HeroModel extends ImageView{
+public class HeroModel extends ImageView {
 
 	private String heroName;
 	private int HP;
 	private int MP;
 	private int xAxis = 0, yAxis = 0;
+	private int pix_mazeSize_20 = 26; // unavoidable magic number :(
 	Image heroImage = new Image(HeroModel.class.getResourceAsStream("../source/valkyrie.png"));
 
-	public String detectDirection(MapModel map){
+	public String detectDirection(MapModel map) {
 		boolean upHasWall = true;
 		boolean downHasWall = true;
 		boolean leftHasWall = true;
 		boolean rightHasWall = true;
 		String s = "";
 
-		try{
-			upHasWall = map.getUnitList(xAxis, yAxis-1).getWall();
-			if(!upHasWall){
-				s = s+"up,";
+		try {
+			upHasWall = map.getUnitList(xAxis, yAxis - 1).getWall();
+			if (!upHasWall) {
+				s = s + "up,";
 			}
-		}catch(Exception e){
+		} catch (Exception e) {
 		}
 
-		try{
-			downHasWall = map.getUnitList(xAxis, yAxis+1).getWall();
-			if(!downHasWall){
-				s = s+"down,";
+		try {
+			downHasWall = map.getUnitList(xAxis, yAxis + 1).getWall();
+			if (!downHasWall) {
+				s = s + "down,";
 			}
-		}catch (Exception e) {
-
-		}
-
-		try{
-			leftHasWall = map.getUnitList(xAxis-1, yAxis).getWall();
-			if(!leftHasWall){
-				s = s+"left,";
-			}
-		}catch (Exception e){
+		} catch (Exception e) {
 
 		}
 
-		try{
-			rightHasWall = map.getUnitList(xAxis+1, yAxis).getWall();
-			if(!rightHasWall){
-				s = s+"right,";
+		try {
+			leftHasWall = map.getUnitList(xAxis - 1, yAxis).getWall();
+			if (!leftHasWall) {
+				s = s + "left,";
 			}
-		}catch (Exception e){
+		} catch (Exception e) {
+
+		}
+
+		try {
+			rightHasWall = map.getUnitList(xAxis + 1, yAxis).getWall();
+			if (!rightHasWall) {
+				s = s + "right,";
+			}
+		} catch (Exception e) {
 
 		}
 
@@ -59,16 +60,22 @@ public class HeroModel extends ImageView{
 
 	}
 
-	public void move(MapModel map, int diceNumber) throws InterruptedException{
-		for(int i = diceNumber; i>0; i--) {
-			if(map.getUnitList(xAxis+1, yAxis).getWall() != true) {
-				updateNewHeroPosition(xAxis+1,yAxis);
-				this.setTranslateX(xAxis*25+5);
-				TimeUnit.SECONDS.sleep(3);
+	public void move(MapModel map, int diceNumber) throws InterruptedException {
+
+		switch (map.getSize()) {
+		case 20:
+			for (int i = diceNumber; i > 0; i--) {
+				if (map.getUnitList(xAxis + 1, yAxis).getWall() != true) {
+					updateNewHeroPosition(xAxis + 1, yAxis);
+					this.setTranslateX(xAxis * pix_mazeSize_20);
+					// TimeUnit.SECONDS.sleep(3);
+				} else {
+					System.out.println("You hit a wall!");
+				}
 			}
-			
+			break;
 		}
-		
+
 	}
 
 	public HeroModel(String heroName, int HP, int MP) {
@@ -107,8 +114,8 @@ public class HeroModel extends ImageView{
 
 		xAxis = x;
 		yAxis = y;
-		
-		System.out.println("HeroPositionXY set to ("+ xAxis + "," + yAxis + ")");
+
+		System.out.println("HeroPositionXY set to (" + xAxis + "," + yAxis + ")");
 	}
 
 }
