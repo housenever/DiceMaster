@@ -8,6 +8,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Slider;
 import javafx.stage.Stage;
+import model.Context;
+import model.MapModel;
 
 import java.io.IOException;
 
@@ -20,12 +22,14 @@ public class Scene3Controller {
     public void nextScene(ActionEvent event) throws IOException
     {
         Parent scene3 = FXMLLoader.load(getClass().getResource("../view/gameScene.fxml"));
-        Scene diffScene = new Scene(scene3);
+        Scene gameScene = new Scene(scene3);
 
         //This line gets the Stage information
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(gameScene);
+        Context instance = new Context();
+        instance.setDifficulty((int)slider.getValue());
 
-        window.setScene(diffScene);
     }
 
     public void backScene(ActionEvent event) throws IOException

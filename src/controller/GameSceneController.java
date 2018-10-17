@@ -15,10 +15,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import model.DiceModel;
-import model.HeroModel;
-import model.HeroValkyrie;
-import model.MapModel;
+import model.*;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -53,10 +51,10 @@ public class GameSceneController implements Initializable {
     @FXML
     private Label direction;
 
-    Pane map = new Pane();
+    private Pane map = new Pane();
     MapModel mapModel = new MapModel(20);
-    HeroValkyrie hero = new HeroValkyrie();
-
+    private HeroValkyrie hero = new HeroValkyrie();
+    Context instance = new Context();
 
 
     @FXML
@@ -66,8 +64,9 @@ public class GameSceneController implements Initializable {
         diceResult.setText(String.valueOf(currentNumber));
         hero.move(mapModel,currentNumber);
         direction.setText(hero.detectDirection(mapModel));
-    }
+        System.out.println("Rolldice"+instance.getDifficulty());
 
+    }
 
 
     @FXML
@@ -80,6 +79,8 @@ public class GameSceneController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        mapModel.setDifficulty(instance.getDifficulty());
+        System.out.println("A"+instance.getDifficulty());
         map = mapModel.getMapPane();
         mazeMap.getChildren().addAll(map,hero);
     }

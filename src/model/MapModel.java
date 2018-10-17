@@ -11,7 +11,18 @@ public class MapModel {
 	private int position_x = 100;
 	private int position_y = 100;
 	private int mazeSize;
-	
+
+	private int difficulty;
+	public int getDifficulty() {
+		return difficulty;
+	}
+	public void setDifficulty(int difficulty) {
+		this.difficulty = difficulty;
+	}
+
+
+
+
 	// store each unit on the map to list
 	private MapUnitModel[][] mapUnitList = new MapUnitModel[position_x][position_y];
 	
@@ -31,6 +42,7 @@ public class MapModel {
 
 	// method to create map
 	private void creatMazeMap(int mapSize) {
+		System.out.println(difficulty);
 
 		for (int i = mapSize; i >= 0; i--)
 			for (int j = mapSize; j >= 0; j--) {
@@ -39,8 +51,9 @@ public class MapModel {
 				Boolean randomWall = false;
 				double d = Math.random();
 				int r = (int) (d * 100);
-				if (r > 75)
+				if (r > 100-difficulty*10)
 					randomWall = true;
+
 
 				// create a map for maze with random wall
 				MapUnitModel aUnit = new MapUnitModel(randomWall, false);
