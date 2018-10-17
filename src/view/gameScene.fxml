@@ -53,7 +53,7 @@
                </padding>
             </VBox>
             <Label text="RESULT" />
-            <Label fx:id="diceResult" alignment="CENTER" contentDisplay="CENTER" text="4" textAlignment="CENTER" textOverrun="CLIP">
+            <Label fx:id="diceResult" alignment="CENTER" contentDisplay="CENTER" text="^.^" textAlignment="CENTER" textOverrun="CLIP">
                <font>
                   <Font size="48.0" />
                </font>

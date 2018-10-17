@@ -48,6 +48,7 @@ public class MapModel{
 				// put hero in the maze
 				if(i == 0 && j == 0) {
 					aUnit.setText("@");
+					aUnit.setStyle("-fx-background-color: #fff;");
 				}
 				
 			}
