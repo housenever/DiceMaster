@@ -60,12 +60,12 @@ public class GameSceneController implements Initializable {
 
 
     @FXML
-    public void rollDice(ActionEvent event) {
+    public void rollDice(ActionEvent event) throws InterruptedException {
         DiceModel diceModel = new DiceModel();
         int currentNumber = diceModel.rollDice();
         diceResult.setText(String.valueOf(currentNumber));
+        hero.move(mapModel,currentNumber);
         direction.setText(hero.detectDirection(mapModel));
-        hero.move();
     }
 
 
@@ -82,7 +82,6 @@ public class GameSceneController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         map = mapModel.getMapPane();
         mazeMap.getChildren().addAll(map,hero);
-
     }
 }
 

@@ -1,5 +1,7 @@
 package model;
 
+import java.util.concurrent.TimeUnit;
+
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -57,8 +59,16 @@ public class HeroModel extends ImageView{
 
 	}
 
-	public void move(){
-		updateNewHeroPosition(xAxis+1,yAxis);
+	public void move(MapModel map, int diceNumber) throws InterruptedException{
+		for(int i = diceNumber; i>0; i--) {
+			if(map.getUnitList(xAxis+1, yAxis).getWall() != true) {
+				updateNewHeroPosition(xAxis+1,yAxis);
+				this.setTranslateX(xAxis*25+5);
+				TimeUnit.SECONDS.sleep(3);
+			}
+			
+		}
+		
 	}
 
 	public HeroModel(String heroName, int HP, int MP) {
