@@ -1,5 +1,6 @@
 package view;
 
+import javafx.scene.input.KeyCode;
 import javafx.stage.*;
 import javafx.scene.*;
 import javafx.scene.layout.*;
@@ -10,7 +11,7 @@ import model.MapModel;
 
 import java.util.List;
 
-import static javafx.scene.input.KeyCode.KP_UP;
+import static javafx.scene.input.KeyCode.*;
 
 public class DirectionInputBox {
 
@@ -42,11 +43,17 @@ public class DirectionInputBox {
 
         btn.setOnKeyPressed(
                 event -> {
-                    switch (event.getCode()){
-                        case UP: {System.out.println("Input UP"); hero.move(mapModel, number, 0,-1); window.close();}
-                        case DOWN: {System.out.println("Input Down"); hero.move(mapModel, number, 0,1); window.close();}
-                        case LEFT: {System.out.println("Input Left"); hero.move(mapModel, number, -1,0); window.close();}
-                        case RIGHT: {System.out.println("Input Right"); hero.move(mapModel, number, 1,0); window.close();}
+                    if (event.getCode() == UP){
+                        System.out.println("Input UP"); hero.move(mapModel, number, 0,-1); window.close();
+                    }
+                    if (event.getCode() == DOWN){
+                        System.out.println("Input Down"); hero.move(mapModel, number, 0,1); window.close();
+                    }
+                    if (event.getCode() == LEFT){
+                        System.out.println("Input Left"); hero.move(mapModel, number, -1,0); window.close();
+                    }
+                    if (event.getCode() == RIGHT){
+                        System.out.println("Input Right"); hero.move(mapModel, number, 1,0); window.close();
                     }
 
                 }
