@@ -62,17 +62,15 @@ public class HeroModel extends ImageView {
 
 	public void move(MapModel map, int diceNumber, int dx, int dy) {
 
-		switch (map.getSize()) {
-		case 20:
-
-			for (int i = diceNumber; i > 0; i--) {
+//			System.out.println("Start Moving");
+			for (int i = 0; i < diceNumber; i++) {
 				if (!map.getUnitList(xAxis + dx, yAxis + dy).getWall()) {
 					updateNewHeroPosition(xAxis + dx, yAxis +dy);
 
 					if (dy == 0){
 						this.setTranslateX(dx * xAxis * pix_mazeSize_20);
 					}
-					if (dx == 0){
+					else{
 						this.setTranslateY(dy * yAxis * pix_mazeSize_20);
 					}
 
@@ -81,8 +79,8 @@ public class HeroModel extends ImageView {
 					System.out.println("You hit a wall!");
 				}
 			}
-			break;
-		}
+
+
 
 	}
 
