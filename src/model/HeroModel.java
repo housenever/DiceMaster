@@ -11,7 +11,7 @@ public class HeroModel extends ImageView {
 	private int HP;
 	private int MP;
 	private int xAxis = 0, yAxis = 0;
-	private int pix_mazeSize_20 = 26; // unavoidable magic number :(
+	private int pix_mazeSize_20 = 25; // unavoidable magic number :(
 	Image heroImage = new Image(HeroModel.class.getResourceAsStream("../source/valkyrie.png"));
 
 	public String detectDirection(MapModel map) {
@@ -60,14 +60,22 @@ public class HeroModel extends ImageView {
 
 	}
 
-	public void move(MapModel map, int diceNumber) throws InterruptedException {
+	public void move(MapModel map, int diceNumber, int dx, int dy) {
 
 		switch (map.getSize()) {
 		case 20:
+
 			for (int i = diceNumber; i > 0; i--) {
-				if (map.getUnitList(xAxis + 1, yAxis).getWall() != true) {
-					updateNewHeroPosition(xAxis + 1, yAxis);
-					this.setTranslateX(xAxis * pix_mazeSize_20);
+				if (!map.getUnitList(xAxis + dx, yAxis + dy).getWall()) {
+					updateNewHeroPosition(xAxis + dx, yAxis +dy);
+
+					if (dy == 0){
+						this.setTranslateX(dx * xAxis * pix_mazeSize_20);
+					}
+					if (dx == 0){
+						this.setTranslateY(dy * yAxis * pix_mazeSize_20);
+					}
+
 					// TimeUnit.SECONDS.sleep(3);
 				} else {
 					System.out.println("You hit a wall!");

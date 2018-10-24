@@ -16,6 +16,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.*;
+import view.DirectionInputBox;
 
 import java.io.IOException;
 import java.net.URL;
@@ -61,8 +62,12 @@ public class GameSceneController implements Initializable {
         DiceModel diceModel = new DiceModel();
         int currentNumber = diceModel.rollDice();
         diceResult.setText(String.valueOf(currentNumber));
-        hero.move(mapModel,currentNumber);
+        DirectionInputBox modalbox = new DirectionInputBox();
+        modalbox.display(mapModel, currentNumber,hero);
+//        hero.move(mapModel,currentNumber);
         direction.setText(hero.detectDirection(mapModel));
+
+
         
     }
 
