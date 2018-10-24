@@ -62,25 +62,34 @@ public class HeroModel extends ImageView {
 
 	public void move(MapModel map, int diceNumber, int dx, int dy) {
 
-//			System.out.println("Start Moving");
-			for (int i = 0; i < diceNumber; i++) {
-				if (!map.getUnitList(xAxis + dx, yAxis + dy).getWall()) {
-					updateNewHeroPosition(xAxis + dx, yAxis +dy);
-
-					if (dy == 0){
-						this.setTranslateX(dx * xAxis * pix_mazeSize_20);
-					}
-					else{
-						this.setTranslateY(dy * yAxis * pix_mazeSize_20);
-					}
-
-					// TimeUnit.SECONDS.sleep(3);
-				} else {
-					System.out.println("You hit a wall!");
-				}
+		// System.out.println("Start Moving");
+		for (int i = 0; i < diceNumber; i++) {
+			
+			if (xAxis + dx < 0 || yAxis + dy < 0 || xAxis + dx > 19 || yAxis + dy > 19) {
+				System.out.println("Boundary detected! Unable to move();");
+				return;
 			}
+			
+			if (!map.getUnitList(xAxis + dx, yAxis + dy).getWall()) {
+				updateNewHeroPosition(xAxis + dx, yAxis + dy);
 
+				if (dy == 0) {
+					if (dx > 0)
+						this.setTranslateX(dx * xAxis * pix_mazeSize_20);
+					else
+						this.setTranslateX(-1 * dx * xAxis * pix_mazeSize_20);
+				} else {
+					if (dy > 0)
+						this.setTranslateY(dy * yAxis * pix_mazeSize_20);
+					else
+						this.setTranslateY(-1 * dy * yAxis * pix_mazeSize_20);
+				}
 
+				// TimeUnit.SECONDS.sleep(3);
+			} else {
+				System.out.println("You hit a wall!");
+			}
+		}
 
 	}
 
