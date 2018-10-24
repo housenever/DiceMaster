@@ -48,7 +48,7 @@ public class DirectionInputBox {
                         case LEFT: {System.out.println("Input Left"); hero.move(mapModel, number, -1,0); window.close();}
                         case RIGHT: {System.out.println("Input Right"); hero.move(mapModel, number, 1,0); window.close();}
                     }
-
+                    System.out.println("once");
                 }
         );
 
