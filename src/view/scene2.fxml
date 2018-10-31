@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<GridPane alignment="center" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Scene2Controller">
+<GridPane alignment="center" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Scene2Controller">
     <columnConstraints>
         <ColumnConstraints />
         <ColumnConstraints />
@@ -47,8 +52,15 @@
                         <ImageView fx:id="charaPic" fitHeight="240.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../source/dice.gif" />
-                           </image></ImageView>
-                        <Text fx:id="charaName" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
+                           </image>
+                        </ImageView>
+                        <Text fx:id="charaName" fill="#ff275c" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin></Text>
                      </children>
                      <padding>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -69,41 +81,182 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" />
                           </rowConstraints>
                            <children>
-                              <Label style="-fx-background-color: #eee;" text="ablity1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                                 <padding>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" top="6.0" />
-                                 </padding>
-                              </Label>
-                              <Label layoutX="50.0" layoutY="17.0" style="-fx-background-color: #eee;" text="ablity2" GridPane.columnIndex="1" GridPane.halignment="CENTER">
-                                 <padding>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" top="6.0" />
-                                 </padding>
-                              </Label>
-                              <Label layoutX="169.0" layoutY="17.0" style="-fx-background-color: #eee;" text="ablity3" GridPane.columnIndex="2" GridPane.halignment="CENTER">
-                                 <padding>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" top="6.0" />
-                                 </padding>
-                              </Label>
-                              <Label layoutX="289.0" layoutY="17.0" style="-fx-background-color: #eee;" text="ablity4" GridPane.columnIndex="3" GridPane.halignment="CENTER">
-                                 <padding>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" top="6.0" />
-                                 </padding>
-                              </Label>
+                              <ImageView fx:id="drag1" fitHeight="54.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../source/sword1.png" />
+                                 </image>
+                                 <GridPane.margin>
+                                    <Insets left="40.0" />
+                                 </GridPane.margin>
+                              </ImageView>
+                              <ImageView fx:id="drag2" fitHeight="54.0" fitWidth="54.0" layoutX="50.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                                 <image>
+                                    <Image url="@../source/sword2.png" />
+                                 </image>
+                                 <GridPane.margin>
+                                    <Insets left="40.0" />
+                                 </GridPane.margin>
+                              </ImageView>
+                              <ImageView fx:id="drag3" fitHeight="54.0" fitWidth="54.0" layoutX="181.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+                                 <image>
+                                    <Image url="@../source/sword3.png" />
+                                 </image>
+                                 <GridPane.margin>
+                                    <Insets left="40.0" />
+                                 </GridPane.margin>
+                              </ImageView>
+                              <ImageView fx:id="drag4" fitHeight="54.0" fitWidth="54.0" layoutX="312.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
+                                 <image>
+                                    <Image url="@../source/sword4.png" />
+                                 </image>
+                                 <GridPane.margin>
+                                    <Insets left="40.0" />
+                                 </GridPane.margin>
+                              </ImageView>
                            </children>
                         </GridPane>
-                        <GridPane fx:id="ablityContainer" minHeight="100.0">
-                          <columnConstraints>
+                        <GridPane fx:id="ablityList1" alignment="CENTER" layoutX="30.0" layoutY="30.0" prefHeight="120.0">
+                           <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="120.0" prefHeight="30.0" valignment="CENTER" />
+                           </rowConstraints>
                            <VBox.margin>
-                              <Insets top="30.0" />
+                              <Insets top="60.0" />
                            </VBox.margin>
+                           <children>
+                              <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="90.0">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                                 <children>
+                                    <AnchorPane prefHeight="91.0" prefWidth="100.0">
+                                       <children>
+                                          <StackPane layoutX="44.0" layoutY="26.0" prefHeight="99.0" prefWidth="103.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <ImageView fitHeight="80" fitWidth="80" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../source/frame.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <ImageView fx:id="drop1" fitHeight="50.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../source/circle.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </StackPane>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="33.0" prefWidth="131.0">
+                                       <children>
+                                          <Label fx:id="ability1" layoutX="16.0" layoutY="14.0" prefHeight="21.0" prefWidth="100.0" text="Ability" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="0.0">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="150.0" prefWidth="90.0" GridPane.columnIndex="1">
+                                 <children>
+                                    <AnchorPane prefHeight="91.0" prefWidth="100.0">
+                                       <children>
+                                          <StackPane layoutX="44.0" layoutY="26.0" prefHeight="99.0" prefWidth="103.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <ImageView fitHeight="80" fitWidth="80" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../source/frame.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <ImageView fx:id="drop2" fitHeight="50.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../source/circle.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </StackPane>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="33.0" prefWidth="131.0">
+                                       <children>
+                                          <Label fx:id="ability2" layoutX="19.0" layoutY="14.0" prefHeight="21.0" prefWidth="90.0" text="Ability" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="0.0">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="TOP_CENTER" layoutX="141.0" layoutY="10.0" prefHeight="150.0" prefWidth="90.0" GridPane.columnIndex="2">
+                                 <children>
+                                    <AnchorPane prefHeight="91.0" prefWidth="100.0">
+                                       <children>
+                                          <StackPane layoutX="44.0" layoutY="26.0" prefHeight="99.0" prefWidth="103.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <ImageView fitHeight="80" fitWidth="80" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../source/frame.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <ImageView fx:id="drop3" fitHeight="50.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../source/circle.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </StackPane>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="33.0" prefWidth="131.0">
+                                       <children>
+                                          <Label fx:id="ability3" layoutX="26.0" layoutY="14.0" prefHeight="21.0" prefWidth="86.0" text="Ability" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="19.0" AnchorPane.topAnchor="0.0">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="TOP_CENTER" layoutX="272.0" layoutY="10.0" prefHeight="150.0" prefWidth="90.0" GridPane.columnIndex="3">
+                                 <children>
+                                    <AnchorPane prefHeight="91.0" prefWidth="100.0">
+                                       <children>
+                                          <StackPane layoutX="44.0" layoutY="26.0" prefHeight="99.0" prefWidth="103.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <ImageView fitHeight="80" fitWidth="80" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../source/frame.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <ImageView fx:id="drop4" fitHeight="50.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../source/circle.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </StackPane>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="33.0" prefWidth="131.0">
+                                       <children>
+                                          <Label fx:id="ability4" layoutX="26.0" layoutY="14.0" prefHeight="21.0" prefWidth="83.0" text="Ability" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="0.0">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </VBox>
+                           </children>
                         </GridPane>
                      </children>
                      <padding>

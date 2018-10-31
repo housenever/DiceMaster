@@ -1,21 +1,25 @@
 package view;
 
-import javafx.scene.input.KeyCode;
-import javafx.stage.*;
-import javafx.scene.*;
-import javafx.scene.layout.*;
-import javafx.scene.control.*;
-import javafx.geometry.*;
-import model.HeroValkyrie;
+import static javafx.scene.input.KeyCode.DOWN;
+import static javafx.scene.input.KeyCode.LEFT;
+import static javafx.scene.input.KeyCode.RIGHT;
+import static javafx.scene.input.KeyCode.UP;
+
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import model.HeroModel;
 import model.MapModel;
-
-import java.util.List;
-
-import static javafx.scene.input.KeyCode.*;
 
 public class DirectionInputBox {
 
-    public static void display(MapModel mapModel, int number, HeroValkyrie hero) {
+    public static void display(MapModel mapModel, int number, HeroModel hero) {
         Stage window = new Stage();
 
         //Block events to other windows

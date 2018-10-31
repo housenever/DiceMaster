@@ -1,12 +1,13 @@
 package controller;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -15,12 +16,14 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import model.*;
+import model.Context;
+import model.DiceModel;
+import model.HeroModel;
+import model.HeroPinocchio;
+import model.HeroValkyrie;
+import model.HeroZombie;
+import model.MapModel;
 import view.DirectionInputBox;
-
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 
 public class GameSceneController implements Initializable {
@@ -54,11 +57,12 @@ public class GameSceneController implements Initializable {
 
     private Pane map = new Pane();
     private MapModel mapModel;
-	private HeroValkyrie hero = new HeroValkyrie();
+	private HeroModel hero;
 
 
     @FXML
     public void rollDice(ActionEvent event) throws InterruptedException {
+    
         DiceModel diceModel = new DiceModel();
         int currentNumber = diceModel.rollDice();
         diceResult.setText(String.valueOf(currentNumber));
@@ -81,6 +85,21 @@ public class GameSceneController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+    	switch (Scene1Controller.flag) {
+		case 0:
+			hero = new HeroPinocchio();
+			break;
+		case 1:
+			hero = new HeroValkyrie();
+			break;
+		case 2:
+			hero = new HeroZombie();
+			break;
+
+		default:hero = new HeroValkyrie();
+			break;
+		}
+    	userName.setText(hero.getHeroName());
     	mapModel = Context.getInstance().getMapModel();
         map = mapModel.getMapPane();
         mazeMap.getChildren().addAll(map,hero);
