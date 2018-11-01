@@ -14,6 +14,14 @@ public class HeroModel extends ImageView {
 	private int pix_mazeSize_20 = 25; // unavoidable magic number :(
 //	Image heroImage = new Image(HeroModel.class.getResourceAsStream("../source/valkyrie.png"));
 	private Image heroImage;
+	public void setHP(int hP) {
+		HP = hP;
+	}
+
+	public void setMP(int mP) {
+		MP = mP;
+	}
+
 	public String detectDirection(MapModel map) {
 		boolean upHasWall = true;
 		boolean downHasWall = true;

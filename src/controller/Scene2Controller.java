@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
@@ -23,6 +24,7 @@ import javafx.scene.input.TransferMode;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.AbilityModel;
+import model.HeroModel;
 
 public class Scene2Controller implements Initializable  {
 	
@@ -68,8 +70,10 @@ public class Scene2Controller implements Initializable  {
     @FXML
     private Label ability4;
 
-     
+  	private	HeroModel hero = Scene1Controller.hero;
 
+	int HP = 0;
+	int MP = 0;
     public void nextScene(ActionEvent event) throws IOException
     {
         Parent scene3 = FXMLLoader.load(getClass().getResource("../view/scene3.fxml"));
@@ -90,7 +94,7 @@ public class Scene2Controller implements Initializable  {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		//the hero that you choose
+
 		int flag = Scene1Controller.flag;
 		
 		String[] roleName = {"Pinocchio","Valkyrie","Zombie"};
@@ -99,29 +103,12 @@ public class Scene2Controller implements Initializable  {
 		
 		charaPic.setImage(new Image("source/"+roleName[flag].toLowerCase()+".png"));
 
-		Tooltip tooltip1 = new Tooltip();
-		tooltip1.setText("HP+40");
-		ability1.setTooltip(tooltip1);
-		
-		Tooltip tooltip2 = new Tooltip();
-		tooltip2.setText("MP+40");
-		ability2.setTooltip(tooltip1);
-		
-		Tooltip tooltip3 = new Tooltip();
-		tooltip3.setText("HP+50");
-		ability3.setTooltip(tooltip1);
-		
-		Tooltip tooltip4 = new Tooltip();
-		tooltip4.setText("MP+50");
-		ability4.setTooltip(tooltip1);
-	 
-
 		List<AbilityModel > abilityList = new ArrayList<>();
-		abilityList.add(new AbilityModel(drag1, drop1, ability1,"HP+40"));
-		abilityList.add(new AbilityModel(drag2, drop2, ability2,"MP+40"));
-		abilityList.add(new AbilityModel(drag3, drop3, ability3,"HP+50"));
-		abilityList.add(new AbilityModel(drag4, drop4, ability4,"MP+50"));
-		
+		abilityList.add(new AbilityModel(drag1, drop1, ability1,40,30));
+		abilityList.add(new AbilityModel(drag2, drop2, ability2,20,30));
+		abilityList.add(new AbilityModel(drag3, drop3, ability3,50,20));
+		abilityList.add(new AbilityModel(drag4, drop4, ability4,20,40));
+
 		for(AbilityModel abilityModel:abilityList) {
 			
 			abilityModel.getDrag().setOnDragDetected(e->{
@@ -130,27 +117,37 @@ public class Scene2Controller implements Initializable  {
 				ClipboardContent content = new ClipboardContent();
 				content.putImage(abilityModel.getDrag().getImage());
 				dragboard.setContent(content);
+				abilityModel.getDrag().setVisible(false);
 			});
 			
 			abilityModel.getDrop().setOnDragDetected(e->{
 				Dragboard dragboard = abilityModel.getDrop().startDragAndDrop(TransferMode.ANY);
 				ClipboardContent content = new ClipboardContent();
 				content.putImage(abilityModel.getDrop().getImage());
-				Image myimg = abilityModel.getDrop().getImage();
-				System.out.println(abilityModel.getDrop().getImage());
 				dragboard.setContent(content);
 			});
 			
 			abilityModel.getDrop().setOnDragDone(e->{
 				abilityModel.getDrop().setImage(new Image("source/circle.png"));
-				abilityModel.getAbility().setText("Ability");
+				abilityModel.getAbility().setText("ability");
+				System.out.println(HP+" "+MP);
+				HP -= abilityModel.getHPproperty();
+				MP -= abilityModel.getMPproperty();
+				hero.setHP(HP);
+				hero.setMP(MP);
+				abilityModel.getDrag().setVisible(true);
 			});
 			
 			
 			abilityModel.getDrop().setOnDragEntered(e->{
 				Dragboard dragboard = e.getDragboard();
 				abilityModel.getDrop().setImage(dragboard.getImage());
-				abilityModel.getAbility().setText(abilityModel.getProperty());
+				HP += abilityModel.getHPproperty();
+				MP += abilityModel.getMPproperty();
+			    hero.setHP(HP);
+				hero.setMP(MP);
+		 
+				abilityModel.getAbility().setText("HP+"+abilityModel.getHPproperty()+"; HP+"+abilityModel.getMPproperty());
 			});
 			
 			abilityModel.getDrop().setOnDragExited(e->{

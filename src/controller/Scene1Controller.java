@@ -15,6 +15,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import model.HeroModel;
+import model.HeroPinocchio;
+import model.HeroValkyrie;
+import model.HeroZombie;
 
 public class Scene1Controller implements Initializable {
 	@FXML
@@ -31,9 +35,27 @@ public class Scene1Controller implements Initializable {
 
 	public static int flag;
 	
+	public static HeroModel hero;
+	
 	
 
 	public void nextScene(ActionEvent event) throws IOException {
+
+		switch (flag) {
+		case 0:
+			hero = new HeroPinocchio();
+			break;
+		case 1:
+			hero = new HeroValkyrie();
+			break;
+		case 2:
+			hero = new HeroZombie();
+			break;
+
+		default:hero = new HeroValkyrie();
+			break;
+		}
+
 		Parent scene2 = FXMLLoader.load(getClass().getResource("../view/scene2.fxml"));
 		Scene editCharaScene = new Scene(scene2);
 
@@ -45,7 +67,6 @@ public class Scene1Controller implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-
 		nextBtn.setDisable(true);
 		
 		List<Button> btnList = new ArrayList<>();
@@ -67,6 +88,8 @@ public class Scene1Controller implements Initializable {
 			flag=2;
 			changeButton(flag, btnList);
 		});
+		
+		
 
 	}
 
@@ -86,4 +109,5 @@ public class Scene1Controller implements Initializable {
 		}
 
 	}
+	
 }

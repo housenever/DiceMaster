@@ -85,20 +85,10 @@ public class GameSceneController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-    	switch (Scene1Controller.flag) {
-		case 0:
-			hero = new HeroPinocchio();
-			break;
-		case 1:
-			hero = new HeroValkyrie();
-			break;
-		case 2:
-			hero = new HeroZombie();
-			break;
-
-		default:hero = new HeroValkyrie();
-			break;
-		}
+     
+ 
+    	hero = Scene1Controller.hero;
+    	System.out.println(hero.getHP()+"--"+hero.getMP());
     	userName.setText(hero.getHeroName());
     	mapModel = Context.getInstance().getMapModel();
         map = mapModel.getMapPane();
