@@ -30,6 +30,9 @@ public class MapUnitModel extends Label{
 			this.setStyle("-fx-background-color: #000;");
 //			this.setText("[ ]");
 		}
+		else{
+			this.setStyle("-fx-border-color: #cbcbcb; -fx-border-width:0.6px;");
+		}
 	}
 	
 	public void setXY(int x, int y) {
