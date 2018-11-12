@@ -79,6 +79,7 @@ public class GameSceneController implements Initializable {
     }
 
     public void setOnDragOver(DragEvent event){
+    	event.acceptTransferModes(TransferMode.ANY);
         numberResult.setImage(new Image("source/n0_hover.png"));
         event.consume();
     }
@@ -103,6 +104,7 @@ public class GameSceneController implements Initializable {
         //TODO 下面这个方向提示得写到ModalBox里去
         direction.setText(hero.detectDirection(mapModel));
         event.consume();
+        System.out.println("aaaaaaaa");
     }
 
 
