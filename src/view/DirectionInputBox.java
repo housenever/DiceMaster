@@ -19,7 +19,7 @@ import model.MapModel;
 
 public class DirectionInputBox {
 
-	public static void display(MapModel mapModel, int number, HeroModel hero, String direction) {
+	public void display(MapModel mapModel, int number, HeroModel hero, String direction) {
 		Stage window = new Stage();
 
 		// Block events to other windows
@@ -103,7 +103,6 @@ public class DirectionInputBox {
 				}else
 					window.close();
 			}
-			System.out.println("once");
 		});
 
 		// Display window and wait for it to be closed before returning

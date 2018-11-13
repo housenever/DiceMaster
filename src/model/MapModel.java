@@ -1,10 +1,6 @@
 package model;
 
-import java.util.ArrayList;
-
-import javafx.scene.Node;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 
 public class MapModel {
 

@@ -9,8 +9,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Slider;
 import javafx.stage.Stage;
 import model.Context;
-import model.MapModel;
-
 import java.io.IOException;
 
 public class Scene3Controller {

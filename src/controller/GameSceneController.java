@@ -3,7 +3,6 @@ package controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,7 +13,6 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.*;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -22,9 +20,6 @@ import javafx.stage.Stage;
 import model.Context;
 import model.DiceModel;
 import model.HeroModel;
-import model.HeroPinocchio;
-import model.HeroValkyrie;
-import model.HeroZombie;
 import model.MapModel;
 import view.DirectionInputBox;
 
@@ -88,8 +83,6 @@ public class GameSceneController implements Initializable {
 
         event.acceptTransferModes(TransferMode.ANY);
         numberResult.setImage(new Image("source/n0.png"));
-
-        //TODO 以下两行代码应该放到setOnDragDropped去，但放在setOnDragDropped不管用啊
         String str = event.getDragboard().getString();//获得dice数值
         numberResult.setImage(new Image("source/n"+str+".png")); //展示结果图片
 

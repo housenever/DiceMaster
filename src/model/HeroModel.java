@@ -1,7 +1,5 @@
 package model;
 
-import java.util.concurrent.TimeUnit;
-
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -12,8 +10,6 @@ public class HeroModel extends ImageView {
 	private int MP;
 	private int xAxis = 0, yAxis = 0;
 	private int pix_mazeSize_20 = 25; // unavoidable magic number :(
-//	Image heroImage = new Image(HeroModel.class.getResourceAsStream("../source/valkyrie.png"));
-	private Image heroImage;
 	public void setHP(int hP) {
 		HP = hP;
 	}

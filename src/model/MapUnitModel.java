@@ -1,10 +1,6 @@
 package model;
 
-import java.util.ArrayList;
-
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
 public class MapUnitModel extends Label{
 
@@ -18,10 +14,10 @@ public class MapUnitModel extends Label{
 		return isWall;
 	}
 	
-	public MapUnitModel(Boolean isWall, Boolean hasHero) {
+	public MapUnitModel(Boolean _isWall, Boolean _hasHero) {
 		// TODO Auto-generated constructor stub
-		this.isWall = isWall;
-		this.hasHero = hasHero;
+		isWall = _isWall;
+		hasHero = _hasHero;
 		
 		// default (not wall)
 		this.setText("   ");
@@ -36,8 +32,8 @@ public class MapUnitModel extends Label{
 	}
 	
 	public void setXY(int x, int y) {
-		this.xAxis = x;
-		this.yAxis = y;
+		xAxis = x;
+		yAxis = y;
 	}
 	
 }
