@@ -19,7 +19,7 @@ import model.MapModel;
 
 public class DirectionInputBox {
 
-    public static void display(MapModel mapModel, int number, HeroModel hero) {
+    public static void display(MapModel mapModel, int number, HeroModel hero, String direction ) {
         Stage window = new Stage();
 
         //Block events to other windows
@@ -27,8 +27,13 @@ public class DirectionInputBox {
         window.setTitle("Wait For your keyboard");
         window.setMinWidth(250);
 
-        Label label = new Label();
-        label.setText("Please input the direction");
+        Label text1 = new Label();
+        Label text2 = new Label();
+        text1.setText("You can select these direction to go (Keyboard) ");
+        text1.setAlignment(Pos.CENTER);
+        text2.setText(direction);
+        text1.setAlignment(Pos.CENTER);
+        text2.setStyle("-fx-font-size: 36px;");
 
         HBox buttonArea = new HBox();
         Button btn = new Button("Give up step");
@@ -42,7 +47,7 @@ public class DirectionInputBox {
 
         VBox layout = new VBox(10);
         layout.setPadding(new Insets(20, 20, 20, 20));
-        layout.getChildren().addAll(label, buttonArea);
+        layout.getChildren().addAll(text1, text2, buttonArea);
         layout.setAlignment(Pos.CENTER);
 
         btn.setOnKeyPressed(

@@ -3,6 +3,8 @@ package model;
 import java.util.ArrayList;
 
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class MapUnitModel extends Label{
 
@@ -24,11 +26,12 @@ public class MapUnitModel extends Label{
 		// default (not wall)
 		this.setText("   ");
 		this.setPrefSize(25,25);
-		
-		// if true, display wall as "[ ]"
+
 		if(this.isWall == true) {
-			this.setStyle("-fx-background-color: #000;");
-//			this.setText("[ ]");
+			this.setStyle("-fx-background-color: #844414;");
+		}
+		else{
+			this.setStyle("-fx-border-color: #EEE8E5; -fx-border-width:0.6px;");
 		}
 	}
 	

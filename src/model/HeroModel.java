@@ -32,7 +32,7 @@ public class HeroModel extends ImageView {
 		try {
 			upHasWall = map.getUnitList(xAxis, yAxis - 1).getWall();
 			if (!upHasWall) {
-				s = s + "up,";
+				s = s + "▲ \0";
 			}
 		} catch (Exception e) {
 		}
@@ -40,7 +40,7 @@ public class HeroModel extends ImageView {
 		try {
 			downHasWall = map.getUnitList(xAxis, yAxis + 1).getWall();
 			if (!downHasWall) {
-				s = s + "down,";
+				s = s + "▼ \0";
 			}
 		} catch (Exception e) {
 
@@ -49,7 +49,7 @@ public class HeroModel extends ImageView {
 		try {
 			leftHasWall = map.getUnitList(xAxis - 1, yAxis).getWall();
 			if (!leftHasWall) {
-				s = s + "left,";
+				s = s + "◀︎ \0";
 			}
 		} catch (Exception e) {
 
@@ -58,7 +58,7 @@ public class HeroModel extends ImageView {
 		try {
 			rightHasWall = map.getUnitList(xAxis + 1, yAxis).getWall();
 			if (!rightHasWall) {
-				s = s + "right,";
+				s = s + "▶︎ \0";
 			}
 		} catch (Exception e) {
 

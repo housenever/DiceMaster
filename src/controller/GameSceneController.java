@@ -81,30 +81,33 @@ public class GameSceneController implements Initializable {
     public void setOnDragOver(DragEvent event){
     	event.acceptTransferModes(TransferMode.ANY);
         numberResult.setImage(new Image("source/n0_hover.png"));
-        event.consume();
+//        event.consume();
     }
 
     public void setOnDragExited(DragEvent event){
+
+        event.acceptTransferModes(TransferMode.ANY);
         numberResult.setImage(new Image("source/n0.png"));
 
-        //以下两行代码应该放到setOnDragDropped去，但目前setOnDragDropped不管用啊
+        //TODO 以下两行代码应该放到setOnDragDropped去，但放在setOnDragDropped不管用啊
         String str = event.getDragboard().getString();//获得dice数值
         numberResult.setImage(new Image("source/n"+str+".png")); //展示结果图片
 
-        event.consume();
+//        event.consume();
     }
 
-    //TODO 目前DragDropped不管用啊，好奇怪
+
     public void setOnDragDropped(DragEvent event){
+
+        event.acceptTransferModes(TransferMode.ANY);
         String str = event.getDragboard().getString();//获得dice数值
         numberResult.setImage(new Image("source/n"+str+".png")); //展示结果图片
-        DirectionInputBox modalbox = new DirectionInputBox(); //实例化一个新的方向提示框
-        modalbox.display(mapModel, Integer.valueOf(str),hero); //展示方向提示框
 
-        //TODO 下面这个方向提示得写到ModalBox里去
-        direction.setText(hero.detectDirection(mapModel));
+        DirectionInputBox modalbox = new DirectionInputBox(); //实例化一个新的方向提示框
+        modalbox.display(mapModel, Integer.valueOf(str),hero,hero.detectDirection(mapModel)); //展示方向提示框
+
         event.consume();
-        System.out.println("aaaaaaaa");
+
     }
 
 

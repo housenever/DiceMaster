@@ -48,7 +48,7 @@ public class MapModel {
 				Boolean randomWall = false;
 				double d = Math.random();
 				int r = (int) (d * 100);
-				if (r > 100-difficulty*10)
+				if (r > 100-difficulty*2.5)
 					randomWall = true;
 
 
@@ -60,8 +60,8 @@ public class MapModel {
 
 				// put hero in the maze
 				if (i == 0 && j == 0) {
-					aUnit.setText("@");
-					aUnit.setStyle("-fx-background-color: #fff;");
+//					aUnit.setText("@");
+//					aUnit.setStyle("-fx-background-color: #fff;");
 				}
 
 			}

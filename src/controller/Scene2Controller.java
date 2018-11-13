@@ -71,7 +71,7 @@ public class Scene2Controller implements Initializable  {
     private Label ability4;
 
   	private	HeroModel hero = Scene1Controller.hero;
-
+  	ImageView  drag =  new ImageView();
 	int HP = 0;
 	int MP = 0;
     public void nextScene(ActionEvent event) throws IOException
@@ -108,6 +108,8 @@ public class Scene2Controller implements Initializable  {
 		abilityList.add(new AbilityModel(drag2, drop2, ability2,20,30));
 		abilityList.add(new AbilityModel(drag3, drop3, ability3,50,20));
 		abilityList.add(new AbilityModel(drag4, drop4, ability4,20,40));
+ 
+	
 
 		for(AbilityModel abilityModel:abilityList) {
 			
@@ -117,7 +119,8 @@ public class Scene2Controller implements Initializable  {
 				ClipboardContent content = new ClipboardContent();
 				content.putImage(abilityModel.getDrag().getImage());
 				dragboard.setContent(content);
-				abilityModel.getDrag().setVisible(false);
+				drag = abilityModel.getDrag();
+				
 			});
 			
 			abilityModel.getDrop().setOnDragDetected(e->{
@@ -130,7 +133,7 @@ public class Scene2Controller implements Initializable  {
 			abilityModel.getDrop().setOnDragDone(e->{
 				abilityModel.getDrop().setImage(new Image("source/circle.png"));
 				abilityModel.getAbility().setText("ability");
-				System.out.println(HP+" "+MP);
+			 
 				HP -= abilityModel.getHPproperty();
 				MP -= abilityModel.getMPproperty();
 				hero.setHP(HP);
@@ -139,23 +142,31 @@ public class Scene2Controller implements Initializable  {
 			});
 			
 			
-			abilityModel.getDrop().setOnDragEntered(e->{
-				Dragboard dragboard = e.getDragboard();
-				abilityModel.getDrop().setImage(dragboard.getImage());
-				HP += abilityModel.getHPproperty();
-				MP += abilityModel.getMPproperty();
-			    hero.setHP(HP);
-				hero.setMP(MP);
+			abilityModel.getDrop().setOnDragDropped(e->{
+				
+				
+	 if(drag.getId().charAt(drag.getId().length()-1)==abilityModel.getDrop().getId().charAt(abilityModel.getDrop().getId().length()-1)) {
+			Dragboard dragboard = e.getDragboard();
+			abilityModel.getDrop().setImage(dragboard.getImage());
+			HP += abilityModel.getHPproperty();
+			MP += abilityModel.getMPproperty();
+		    hero.setHP(HP);
+			hero.setMP(MP);
+			
+			drag.setVisible(false);
+	 
+			abilityModel.getAbility().setText("HP+"+abilityModel.getHPproperty()+"; HP+"+abilityModel.getMPproperty());
+	 }
 		 
-				abilityModel.getAbility().setText("HP+"+abilityModel.getHPproperty()+"; HP+"+abilityModel.getMPproperty());
+			
 			});
 			
 			abilityModel.getDrop().setOnDragExited(e->{
 			});
 			
 			abilityModel.getDrop().setOnDragOver(e->{
-				if (e.getGestureSource() != abilityModel.getDrop() && e.getDragboard().hasString()) {
-					e.acceptTransferModes(TransferMode.COPY_OR_MOVE);
+				if (e.getGestureSource() != abilityModel.getDrop()) {
+					e.acceptTransferModes(TransferMode.ANY);
 				}
 			});
 		}
