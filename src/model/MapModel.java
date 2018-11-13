@@ -59,9 +59,9 @@ public class MapModel {
 				mapUnitList[i][j] = aUnit;
 
 				// put hero in the maze
-				if (i == 0 && j == 0) {
-//					aUnit.setText("@");
-//					aUnit.setStyle("-fx-background-color: #fff;");
+				if (i == 20 && j == 20) {
+					aUnit.setText(" ->");
+					aUnit.setStyle("-fx-background-color: #fff;");
 				}
 
 			}

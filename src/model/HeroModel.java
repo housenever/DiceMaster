@@ -73,7 +73,7 @@ public class HeroModel extends ImageView {
 		// System.out.println("Start Moving");
 		for (int i = 0; i < diceNumber; i++) {
 			
-			if (xAxis + dx < 0 || yAxis + dy < 0 || xAxis + dx > 19 || yAxis + dy > 19) {
+			if (xAxis + dx < 0 || yAxis + dy < 0 || xAxis + dx > 20 || yAxis + dy > 20) {
 				System.out.println("Boundary detected! Unable to move();");
 				return;
 			}
@@ -139,6 +139,13 @@ public class HeroModel extends ImageView {
 		yAxis = y;
 
 		System.out.println("HeroPositionXY set to (" + xAxis + "," + yAxis + ")");
+	}
+	
+	public boolean checkWin() {
+		if(xAxis==20 && yAxis == 20) {
+			return true;
+		}else 
+			return false;
 	}
 
 }
